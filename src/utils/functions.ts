@@ -14,7 +14,7 @@ export async function search<T>(type: "tv" | "movie", page: number, query: strin
 }
 
 export async function fetchPopular<T>(type: "tv" | "movie", page: number, signal: AbortSignal) {
-  return await request<Fetch<T>>(`/${type}/popular?`, signal, page);
+  return await request<Fetch<T>>(`/trending/${type}/week?`, signal, page);
 }
 
 export async function fetchSpecific<T>(type:"tv" | "movie", id: string, signal: AbortSignal) {
