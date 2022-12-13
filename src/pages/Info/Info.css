@@ -1,0 +1,53 @@
+.specific {
+    @apply w-full h-full z-10 overflow-hidden flex justify-between gap-20;
+
+    & > div {
+        @apply flex flex-col;
+        & > h1 {
+            @apply text-[clamp(1.875rem,3vw,3.75rem)] font-bold pb-5;
+
+            & > span {
+                @apply font-normal;
+            }
+        }
+
+        & > h2 {
+            @apply text-[clamp(1.25rem,1.5vw,2rem)] font-bold pb-1;
+        }
+
+        & > p {
+            @apply text-neutral-300 text-[clamp(1rem,1vw,1.25rem)] pb-5;
+        }
+    }
+
+    & > picture {
+        @apply relative h-full min-w-fit rounded-2xl aspect-[500/735] overflow-hidden;
+
+        & > img {
+            @apply w-full object-cover h-full;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        & {
+            @apply flex-col;
+
+            & > div {
+                @apply absolute bg-themeDark z-10 bottom-0 left-0 p-12 pb-[30vh];
+            }
+
+            & > picture {
+                @apply h-auto top-0 left-0 right-0 w-screen absolute aspect-video rounded-none;
+            }
+        }
+    }
+}
+
+.torrents {
+    @apply pt-4 flex flex-wrap gap-5;
+
+    & > button {
+        @apply bg-theme font-bold text-lg px-5 py-3 rounded-2xl shadow-md hover:opacity-60 transition-opacity;
+    }
+}
+  

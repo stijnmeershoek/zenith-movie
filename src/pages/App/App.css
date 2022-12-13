@@ -1,0 +1,72 @@
+.app {
+    @apply flex flex-col items-center w-screen h-screen overflow-x-hidden overflow-y-auto p-12 bg-themeDark text-white;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #383838;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+
+nav {
+    @apply h-full;
+    & > ul {
+        @apply h-full flex flex-col gap-10 items-center justify-center;
+
+        & > li > a {
+            @apply text-5xl font-bold text-black hover:text-theme transition-colors;
+        }
+    }
+}
+
+header {
+    @apply w-[min(1110px,100%)] pb-5 justify-between flex items-center;
+
+    & > .view-buttons {
+        @apply flex items-center gap-5;
+
+        & > button {
+            @apply w-fit text-black transition-all;
+
+            &.active {
+                @apply text-theme;
+            }
+
+            & > svg {
+                @apply aspect-square w-7;
+            }
+        }
+    }
+
+    & > .search {
+        @apply px-5 py-2 bg-[#070707] rounded-xl w-[min(50%,400px)];
+
+        & > input {
+            @apply outline-none w-full bg-inherit caret-current;
+        }
+    }
+}
+
+.card-grid {
+    @apply flex flex-wrap justify-center justify-between gap-5 w-[min(1110px,100%)];
+}
+
+footer {
+    @apply pt-10 w-[min(1110px,100%)] flex justify-center items-center gap-5;
+
+    & > button {
+        @apply text-lg py-3 bg-[#070707] hover:bg-theme rounded-xl w-32 transition-colors;
+
+        &:disabled {
+            @apply pointer-events-none select-none opacity-40;
+        }
+    }
+
+    & > span {
+        @apply font-bold text-2xl;
+    }
+}

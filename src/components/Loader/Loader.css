@@ -1,0 +1,26 @@
+.loader-div {
+  @apply w-screen h-screen absolute flex justify-center items-center bg-themeDark;
+
+  & > .loader {
+    @apply w-12 relative m-auto aspect-square inline-block;
+  
+    &::after, &::before {
+      @apply content-[''] box-border w-full h-full bg-theme absolute left-0 top-0 animate-[animloader_2s_linear_infinite] rounded-full;
+    }
+  
+    &::after {
+      animation-delay: -1s;
+    }
+  }
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,61 @@
+.grid-card {
+    @apply relative flex cursor-pointer rounded-xl overflow-hidden aspect-[500/735] flex-grow max-h-[calc(1/4*100vw)];
+
+    &:hover {
+        & > img {
+            @apply scale-[1.03];
+        }
+
+        & > .info {
+            @apply translate-y-0;
+        }
+    }
+
+    & > img {
+        @apply object-cover w-full scale-100 transition-transform duration-500;
+    }
+
+    & > .info {
+        @apply bg-black absolute bottom-0 translate-y-full w-full h-fit flex flex-col justify-end px-7 pb-7 transition-transform duration-300;
+
+        & > div {
+            @apply absolute top-0 -translate-y-full w-full left-0 px-7 pt-24;
+            background: rgb(0,0,0);
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 70%);
+
+            & > h2 {
+                @apply text-2xl font-bold;
+            }
+    
+            & > div {
+                @apply h-fit flex gap-3 pb-7;
+                
+                & > .line {
+                    @apply w-[2px] rounded-full bg-theme;
+                }
+            }
+        }
+
+        & > p {
+            @apply opacity-70 text-[0.9rem];
+        }
+    }
+}
+
+.list-card {
+    @apply relative w-full flex p-4 bg-[#070707] rounded-2xl cursor-pointer;
+
+    
+    & > .info {
+        & > h2 {
+            @apply font-bold text-xl;
+        }
+        & > p {
+            @apply opacity-70 text-sm;
+        }
+    }
+
+    & > img {
+        @apply aspect-square object-cover h-full max-h-[5rem] rounded-xl mr-3;
+    }
+}
