@@ -17,7 +17,7 @@ export function GridCard(props: Props) {
   }
 
   return (
-    <article class="grid-card" onClick={() => isMovie(props.data) ? navigate(`${props.data.id}`) : {}}>
+    <article class="grid-card" onClick={() => navigate(`${props.data.id}`)}>
       <Show when={props.data.poster_path !== null} fallback={<img src="/missing.jpg" alt='image not found' />}>
           <img src={"https://image.tmdb.org/t/p/w500" + props.data.poster_path} alt={title()} />
       </Show>

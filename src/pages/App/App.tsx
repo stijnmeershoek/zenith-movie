@@ -11,11 +11,15 @@ export function App() {
     <Suspense fallback={<Loader />}>
       <main class="app">
           <Routes>
-            <Route path="/">
+            <Route path="/movies">
               <Route path="/" element={Page<Movie>({urlType: "movie"})}/>
-              <Route path="/:id" element={<Info />}/>
+              <Route path="/:id" element={<Info urlType="movie" />}/>
             </Route>
-            <Route path='*' element={<Navigate href="/"/>} />
+            <Route path="/shows">
+              <Route path="/" element={Page<TV>({urlType: "tv"})}/>
+              <Route path="/:id" element={<Info urlType="tv" />}/>
+            </Route>
+            <Route path='*' element={<Navigate href="/movies"/>} />
           </Routes>
       </main>
     </Suspense>
