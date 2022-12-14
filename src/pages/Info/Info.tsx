@@ -20,17 +20,19 @@ export function Info(props: Props) {
     createRenderEffect(() => {
       const abortController = new AbortController();
       async function fetch() {
-        await fetchSpecific<SpecificMovie | SpecificTV>(props.urlType, params.id, abortController.signal).then(async res => {
-          const details = res;
-          if(isMovie(details) && details.imdb_id) {
-            const torrents = await fetchTorrents(details.imdb_id, abortController.signal);
-            setTorrents(torrents);
-          }
-          setDetails(details);
-        }).catch(() => {
+        const details = await fetchSpecific<SpecificMovie | SpecificTV>(props.urlType, params.id, abortController.signal).catch(() => {
+          navigate(`${props.urlType === "tv" ? "/shows" : "/movies"}`);
+        });
+        if(!details) {
           navigate(`${props.urlType === "tv" ? "/shows" : "/movies"}`);
           return;
-        });
+        } else {
+          if(isMovie(details) && details.imdb_id) {
+            const torrents = await fetchTorrents(details.imdb_id, abortController.signal);
+            setTorrents(torrents);          
+          }
+          setDetails(details);
+        }
       }
 
       fetch();
@@ -54,7 +56,7 @@ export function Info(props: Props) {
           <h2>Overview</h2>
           <p>{details()?.overview}</p>
           <h2>Downloads</h2>
-          <Show when={torrents().length !== 0}>
+          <Show when={torrents().length !== 0} fallback={<p>No torrents are currently available.</p>}>
             <div class="torrents">
               <For each={torrents()}>{torrent => {
                   const name = title()?.replace(/ /g, ".") + "." + torrent.quality + "." + torrent.type.toUpperCase() + "-ZENITH";

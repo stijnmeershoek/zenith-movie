@@ -3,7 +3,7 @@ export async function request<T>(url: string,  signal: AbortSignal, page?: numbe
       signal: signal
     });
     if(!res.ok) {
-      return Promise.reject(new Error(res.statusText))
+      return Promise.reject()
     }
     const json: T = await res.json();
     return Promise.resolve(json);
@@ -28,7 +28,7 @@ export async function fetchTorrents(id: string, signal: AbortSignal): Promise<To
 
   const json = await res.json();
 
-  if (!json.data.movies || json.data.movies[0].torrents.length <= 0) return Promise.reject('No torrents available.');
+  if (!json.data.movies || json.data.movies[0].torrents.length <= 0) return Promise.resolve([]);
 
   const torrents: Torrent[] = json.data.movies[0].torrents;
   return Promise.resolve(torrents);

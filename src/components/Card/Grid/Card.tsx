@@ -24,7 +24,7 @@ export function GridCard(props: Props) {
       <section aria-label='movie info' class="info">
         <div>
           <h2>{title()}</h2>
-          <div><Show when={isMovie(props.data) && props.data.adult}><span>18+</span><div class="line"></div></Show><span>{props.data.vote_average}/10</span><div class="line"></div><time datetime={date()}>{date()?.slice(0,4)}</time></div>
+          <div><Show when={isMovie(props.data) && props.data.adult}><span>18+</span><div class="line"></div></Show><span>{props.data.vote_average.toFixed(1)}/10</span><div class="line"></div><time datetime={date()}>{date()?.slice(0,4)}</time></div>
         </div>
         <p>{props.data.overview}</p>
       </section>

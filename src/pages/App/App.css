@@ -1,5 +1,5 @@
 .app {
-    @apply flex flex-col items-center w-screen h-screen overflow-x-hidden overflow-y-auto p-12 bg-themeDark text-white;
+    @apply flex flex-col items-center w-screen h-screen overflow-x-hidden overflow-y-auto bg-themeDark text-white;
 
     &::-webkit-scrollbar {
         width: 8px;
@@ -12,19 +12,8 @@
     }
 }
 
-nav {
-    @apply h-full;
-    & > ul {
-        @apply h-full flex flex-col gap-10 items-center justify-center;
-
-        & > li > a {
-            @apply text-5xl font-bold text-black hover:text-theme transition-colors;
-        }
-    }
-}
-
 header {
-    @apply w-[min(1110px,100%)] pb-5 justify-between flex items-center;
+    @apply w-[min(1158px,100%)] pb-5 justify-between flex items-center p-12;
 
     & > .view-buttons {
         @apply flex items-center gap-5;
@@ -52,11 +41,11 @@ header {
 }
 
 .card-grid {
-    @apply flex flex-wrap justify-center justify-between gap-5 w-[min(1110px,100%)];
+    @apply flex flex-wrap justify-center justify-between gap-5 w-[min(1158px,100%)] p-12;
 }
 
 footer {
-    @apply pt-10 w-[min(1110px,100%)] flex justify-center items-center gap-5;
+    @apply pt-10 w-[min(1158px,100%)] flex justify-center items-center gap-5 p-12;
 
     & > button {
         @apply text-lg py-3 bg-[#070707] hover:bg-theme rounded-xl w-32 transition-colors;

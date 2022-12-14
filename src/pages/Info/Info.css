@@ -1,5 +1,5 @@
 .specific {
-    @apply w-full h-full z-10 overflow-hidden flex justify-between gap-20;
+    @apply w-full h-full z-10 overflow-hidden flex justify-between gap-20 p-12;
 
     & > div {
         @apply flex flex-col;
@@ -30,10 +30,10 @@
 
     @media screen and (max-width: 1200px) {
         & {
-            @apply flex-col;
+            @apply flex-col p-0;
 
             & > div {
-                @apply absolute bg-themeDark z-10 bottom-0 left-0 p-12 pb-[30vh];
+                @apply flex-grow bg-themeDark z-10 bottom-0 left-0 mt-[30vh] p-12;
             }
 
             & > picture {
