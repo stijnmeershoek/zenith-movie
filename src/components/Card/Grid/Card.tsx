@@ -18,7 +18,7 @@ export function GridCard(props: Props) {
 
   return (
     <article class="grid-card" onClick={() => navigate(`${props.data.id}`)}>
-      <Show when={props.data.poster_path !== null} fallback={<img src="/missing.jpg" alt='image not found' />}>
+      <Show when={props.data.poster_path !== null} fallback={<img src={`${new URL('/missing.jpg', import.meta.url).href}`} alt='image not found' />}>
           <img src={"https://image.tmdb.org/t/p/w500" + props.data.poster_path} alt={title()} />
       </Show>
       <section aria-label='movie info' class="info">
